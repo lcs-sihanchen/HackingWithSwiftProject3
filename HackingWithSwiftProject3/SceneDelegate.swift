@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  HackingWithSwiftProject3
+//  HackingWithSwiftProject1
 //
-//  Created by Chen, Sihan on 2020-03-16.
+//  Created by Chen, Sihan on 2020-03-13.
 //  Copyright © 2020 Chen, Sihan. All rights reserved.
 //
 
