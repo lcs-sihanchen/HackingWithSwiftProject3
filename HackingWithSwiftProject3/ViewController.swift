@@ -68,7 +68,7 @@ class ViewController: UITableViewController {
             vc.selectedImage = pictures[indexPath.row]
             vc.totalNumber = pictures.count
             vc.ofWhichPicture = String(indexPath.row + 1)
-            
+       
             // 3: now push it onto the navigation controller
             navigationController?.pushViewController(vc, animated:
                 true)

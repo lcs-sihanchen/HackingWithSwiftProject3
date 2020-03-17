@@ -64,7 +64,11 @@ class DetailViewController: UIViewController {
                 
         }
         
-        let vc = UIActivityViewController(activityItems: [image], applicationActivities: [])
+        guard let text = selectedImage else {
+            return
+        }
+        let vc = UIActivityViewController(activityItems: [image] + [text], applicationActivities: [])
+        
         // This line of code only works on Ipad, if it's iphone, it will be ignored
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
