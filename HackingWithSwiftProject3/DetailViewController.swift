@@ -25,7 +25,11 @@ class DetailViewController: UIViewController {
         
         // Give it a default value to get rid of "Optional"
         title = "Picture \(ofWhichPicture ?? "1") of \(totalNumber ?? 10)"
-     
+        
+        // When the right navigation button is tapped, trigger shareTapped Method
+        navigationItem.rightBarButtonItem =
+            UIBarButtonItem(barButtonSystemItem: .action, target: self,
+                            action: #selector(shareTapped))
         // Do any additional setup after loading the view.
         
         // Never displays a large title
@@ -47,6 +51,24 @@ class DetailViewController: UIViewController {
         navigationController?.hidesBarsOnTap = false
     }
     
+    // Function is available to Objective-C language
+    @objc func shareTapped() {
+        
+        // Convert image into jpeg data, with a specified quality of 0.8
+        
+        guard let image = imageView.image?.jpegData(compressionQuality: 0.8) else {
+            
+            // If there is no image, print this:
+            print("No image found")
+            return
+                
+        }
+        
+        let vc = UIActivityViewController(activityItems: [image], applicationActivities: [])
+        // This line of code only works on Ipad, if it's iphone, it will be ignored
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
+    }
     /*
      // MARK: - Navigation
      
